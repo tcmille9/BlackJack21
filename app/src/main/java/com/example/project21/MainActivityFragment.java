@@ -19,8 +19,6 @@ Button but;
     int z = 0;
     View rootView;
     TextView tv;
-    public MainActivityFragment() {
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
