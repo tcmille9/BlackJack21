@@ -17,8 +17,6 @@ import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 Button but;
-    FragmentManager fm;
-    MainActivityFragment fragment;
     int i = 0;
     TextView tv = null;
     int a = 0;
@@ -28,7 +26,7 @@ Button but;
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         FragmentManager fm = getSupportFragmentManager();
-        fragment = fm.findFragmentById(R.id.fragment);
+        MainActivityFragment fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
 
 
