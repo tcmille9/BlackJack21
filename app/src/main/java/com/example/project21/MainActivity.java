@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentActivity;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -17,6 +18,8 @@ import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 Button but;
+    FragmentManager fm;
+    MainActivityFragment fragment;
     int i = 0;
     TextView tv = null;
     int a = 0;
@@ -25,10 +28,10 @@ Button but;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        FragmentManager fm = getSupportFragmentManager();
-        MainActivityFragment fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
+        //setSupportActionBar(toolbar);
+        fm = getSupportFragmentManager();
+        fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
-
 
     }
 

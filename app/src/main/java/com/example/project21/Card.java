@@ -10,9 +10,9 @@ public class Card {
         this.suit = suit;
         this.rank = rank;
     }
-    public int getNum() {
-        return rank;
-    }
+    //public int getNum() {
+        //return rank;
+    //}
 
 
 }

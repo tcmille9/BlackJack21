@@ -1,7 +1,7 @@
 package com.example.project21;
 
 import android.graphics.Color;
-import android.app.Fragment;
+//import android.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +9,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.Random;
-
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.Fragment;
 /**
  * A placeholder fragment containing a simple view.
  */
@@ -19,6 +20,9 @@ Button but;
     int z = 0;
     View rootView;
     TextView tv;
+    public MainActivityFragment() {
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
