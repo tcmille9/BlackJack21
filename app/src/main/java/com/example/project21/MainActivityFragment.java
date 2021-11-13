@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import java.util.Random;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -18,7 +19,7 @@ Button but;
     int z = 0;
     View rootView;
     TextView tv;
-    public MainActivityFragment(){
+    public MainActivityFragment() {
     }
 
     @Override
@@ -41,6 +42,18 @@ Button but;
         }
 
         return rootView;
+    }
+
+    public Card[] shuffleDeck(Card[] deck) {
+        Random rnd = new Random();
+        Card tempCard = new Card(0, 0);
+        for (int shuffleCount = 0; shuffleCount < 52; shuffleCount++) {
+            int randomCard = rnd.nextInt(52);
+            tempCard = deck[randomCard];
+            deck[randomCard] = deck[shuffleCount];
+            deck[shuffleCount] = tempCard;
+        }
+        return deck;
     }
 
 

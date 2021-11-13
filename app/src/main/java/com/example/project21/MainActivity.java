@@ -27,8 +27,8 @@ Button but;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        fm = getSupportFragmentManager();
-        fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
+        FragmentManager fm = getSupportFragmentManager();
+        fragment = fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
 
 
@@ -42,9 +42,8 @@ Button but;
     }
 
     public void clickMethod(View view) {
-        but.setText("changed");
-        FragmentManager fm = getSupportFragmentManager();
-        // MainActivityFragment fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
+        tv.setText("Card Number:" + a + " suit:" + fragment.card[a].suit + " rank:" + fragment.card[a].rank);
+        a++;
     }
 
     @Override
