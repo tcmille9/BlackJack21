@@ -14,8 +14,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     //GLOBAL VARIABLES
     Paint paint;
     private CanvasThread canvasthread;
-    //Variable used to hold our bitmap
 
+CardDraw cardDraw;
 
     public Panel(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -25,13 +25,8 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         canvasthread = new CanvasThread(getHolder(), this);
         setFocusable(true);
         paint = new Paint();
-
-
-
+        cardDraw = new CardDraw(context);
     }
-
-
-
 
     public Panel(Context context) {
         super(context);
@@ -41,23 +36,14 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 
     }
 
-
     @Override
     public void onDraw(Canvas canvas) {
-
-        /**
-         paint.setARGB(255, 255, 0, 0);
-         //canvas.drawColor(Color.BLACK);
-         canvas.drawCircle(200f, 200f, 30, paint);
-         **/
+        cardDraw.deal(canvas);
     }
 
     public void update() {
 
-
     }
-
-
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width,
                                int height) {

@@ -27,8 +27,6 @@ Button but;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         fm = getSupportFragmentManager();
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
@@ -45,6 +43,7 @@ Button but;
     public void clickMethod(View view) {
         tv.setText("Card Number:" + a + " suit:" + fragment.card[a].suit + " rank:" + fragment.card[a].rank);
         a++;
+        GetterSetter.currentCard = a;
     }
 
     @Override

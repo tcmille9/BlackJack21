@@ -34,14 +34,18 @@ Button but;
         tv.setTextColor(Color.WHITE);
         rootView.setBackgroundColor(Color.BLACK);
 
+        //Creates the deck array
         card = new Card[52];
 
+        //Assigns a rank and suit to each card in the card array
         for (int i = 0; i < 4; i++) { //suit
             for (int j = 0; j < 13; j++) { //rank aka value
                 card[z] = new Card(i, j);
                 z++;
             }
         }
+        card = shuffleDeck(card);
+        GetterSetter.card = card;
 
         return rootView;
     }
