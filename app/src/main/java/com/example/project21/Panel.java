@@ -9,7 +9,7 @@ import android.view.SurfaceView;
 
 public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     //GLOBAL VARIABLES
-    Paint paint;
+    //Paint paint;
     private CanvasThread canvasthread;
     int localscore;
 
@@ -22,7 +22,7 @@ CardDraw cardDraw;
         getHolder().addCallback(this);
         canvasthread = new CanvasThread(getHolder(), this);
         setFocusable(true);
-        paint = new Paint();
+        //paint = new Paint();
         cardDraw = new CardDraw(context);
     }
 

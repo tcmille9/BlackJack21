@@ -33,7 +33,8 @@ public class MainActivityFragment extends Fragment {
                 false);
         tv = (TextView) rootView.findViewById(R.id.textView);
         tv.setTextColor(Color.WHITE);
-        rootView.setBackgroundColor(Color.BLACK);
+        rootView.setBackgroundColor(Color.TRANSPARENT);
+        //rootView.setBackgroundColor(Color.BLACK);
 
         //Creates the deck array
         card = new Card[52];

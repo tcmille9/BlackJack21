@@ -7,7 +7,9 @@
     android:paddingRight="16dp"
     android:paddingTop="16dp"
     tools:context="com.example.project21.MainActivityFragment"
-    tools:showIn="@layout/activity_main">
+    tools:showIn="@layout/activity_main"
+    android:background="@android:color/transparent"
+    >
 
     <com.example.project21.Panel android:id="@+id/SurfaceView01" android:layout_width="wrap_content"
 
@@ -23,8 +25,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:layout_gravity="center"
-        android:onClick="clickMethod" />
+        android:layout_gravity="bottom|center"
+        android:onClick="clickMethod"
+        android:text="Hit" />
 
 </FrameLayout>
