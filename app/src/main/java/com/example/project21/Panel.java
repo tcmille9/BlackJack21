@@ -1,10 +1,7 @@
 package com.example.project21;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
@@ -14,6 +11,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     //GLOBAL VARIABLES
     Paint paint;
     private CanvasThread canvasthread;
+    int localscore;
 
 CardDraw cardDraw;
 
@@ -28,16 +26,37 @@ CardDraw cardDraw;
         cardDraw = new CardDraw(context);
     }
 
+    public Panel(Context context) {
+        super(context);
+        getHolder().addCallback(this);
+        canvasthread = new CanvasThread(getHolder(), this);
+        setFocusable(true);
+    }
+
+
     @Override
     public void onDraw(Canvas canvas) {
         for(int q = 0; q <= GetterSetter.hit; q++) {
-            cardDraw.deal(canvas, q, (80 * q), 0);
-        }
 
+            cardDraw.deal(canvas, q, (80 * q), 0);
+
+            //if(GetterSetter.buttonpressed == 1) {
+            //    scoreIt(q);
+            //}
+
+        }
+        GetterSetter.buttonpressed = 0;
     }
 
-    public void update() {
+    public void scoreIt(int q) {
+        if(GetterSetter.card[q].rank >= 8 ) {
+            localscore = 10;
+        }
+        else {
+            localscore = GetterSetter.card[q].rank + 2;
+        }
 
+        GetterSetter.playerScore = GetterSetter.playerScore + localscore;
     }
 
     public void surfaceChanged(SurfaceHolder holder, int format, int width,

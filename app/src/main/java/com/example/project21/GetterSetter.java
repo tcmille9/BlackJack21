@@ -5,4 +5,6 @@ public class GetterSetter {
     static Card[] card;
     static int currentCard = 0;
     static int hit = 1;
+    static int playerScore = 0;
+    static int buttonpressed = 1;
 }

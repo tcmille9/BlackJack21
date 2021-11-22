@@ -1,12 +1,7 @@
 package com.example.project21;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentActivity;
-
-
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -14,7 +9,6 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import android.widget.Button;
-import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     Button but;
@@ -43,10 +37,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickMethod(View view) {
-        //GetterSetter.hit++;
-        tv.setText("Card Number:" + GetterSetter.hit + " suit:" + fragment.card[GetterSetter.hit].suit + " rank:" + fragment.card[GetterSetter.hit].rank);
-        a++;
-        GetterSetter.currentCard = a;
+        GetterSetter.playerScore = 0;
+        GetterSetter.hit++;
+        GetterSetter.buttonpressed = 1;
+
+        //tv.setText("Card Number:" + GetterSetter.hit + " suit:" + fragment.card[GetterSetter.hit].suit + " rank:" + fragment.card[GetterSetter.hit].rank);
+        //GetterSetter.currentCard = a;
+
     }
 
     @Override

@@ -1,15 +1,14 @@
 package com.example.project21;
 
 import android.graphics.Color;
-//import android.app.Fragment;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import java.util.Random;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.Fragment;
 /**
  * A placeholder fragment containing a simple view.
@@ -20,6 +19,7 @@ public class MainActivityFragment extends Fragment {
     int z = 0;
     View rootView;
     TextView tv;
+    Handler mHandler;
 
     public MainActivityFragment() {
 
@@ -48,8 +48,21 @@ public class MainActivityFragment extends Fragment {
         card = shuffleDeck(card);
         GetterSetter.card = card;
 
+        mHandler = new Handler();
+        mHandler.post(mUpdate);
+
         return rootView;
     }
+
+    private Runnable mUpdate = new Runnable() {
+
+        public void run() {
+            tv.setText('"' + GetterSetter.playerScore + "");
+
+            mHandler.postDelayed(this, 1);
+        }
+    };
+
 
     public Card[] shuffleDeck(Card[] deck) {
         Random rnd = new Random();
