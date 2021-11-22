@@ -15,11 +15,12 @@ import androidx.fragment.app.Fragment;
  * A placeholder fragment containing a simple view.
  */
 public class MainActivityFragment extends Fragment {
-Button but;
+    Button but;
     Card[] card;
     int z = 0;
     View rootView;
     TextView tv;
+
     public MainActivityFragment() {
 
     }
@@ -38,9 +39,9 @@ Button but;
         card = new Card[52];
 
         //Assigns a rank and suit to each card in the card array
-        for (int i = 0; i < 4; i++) { //suit
-            for (int j = 0; j < 13; j++) { //rank aka value
-                card[z] = new Card(i, j);
+        for (int suit = 0; suit < 4; suit++) { //suit
+            for (int rank = 0; rank < 13; rank++) { //rank aka value
+                card[z] = new Card(suit, rank);
                 z++;
             }
         }

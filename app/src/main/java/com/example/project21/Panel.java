@@ -28,17 +28,12 @@ CardDraw cardDraw;
         cardDraw = new CardDraw(context);
     }
 
-    public Panel(Context context) {
-        super(context);
-        getHolder().addCallback(this);
-        canvasthread = new CanvasThread(getHolder(), this);
-        setFocusable(true);
-
-    }
-
     @Override
     public void onDraw(Canvas canvas) {
-        cardDraw.deal(canvas);
+        for(int q = 0; q <= GetterSetter.hit; q++) {
+            cardDraw.deal(canvas, q, (80 * q), 0);
+        }
+
     }
 
     public void update() {

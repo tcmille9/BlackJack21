@@ -17,16 +17,18 @@ import android.widget.Button;
 import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-Button but;
+    Button but;
     FragmentManager fm;
     MainActivityFragment fragment;
     int i = 0;
     TextView tv = null;
     int a = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         fm = getSupportFragmentManager();
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
@@ -41,7 +43,8 @@ Button but;
     }
 
     public void clickMethod(View view) {
-        tv.setText("Card Number:" + a + " suit:" + fragment.card[a].suit + " rank:" + fragment.card[a].rank);
+        //GetterSetter.hit++;
+        tv.setText("Card Number:" + GetterSetter.hit + " suit:" + fragment.card[GetterSetter.hit].suit + " rank:" + fragment.card[GetterSetter.hit].rank);
         a++;
         GetterSetter.currentCard = a;
     }
