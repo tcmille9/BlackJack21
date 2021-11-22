@@ -55,11 +55,10 @@ public class MainActivityFragment extends Fragment {
     }
 
     private Runnable mUpdate = new Runnable() {
-
         public void run() {
-            tv.setText('"' + GetterSetter.playerScore + "");
+            tv.setText(" " + GetterSetter.playerScore + " ");
 
-            mHandler.postDelayed(this, 1);
+            mHandler.post(this);
         }
     };
 

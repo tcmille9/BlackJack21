@@ -40,9 +40,9 @@ CardDraw cardDraw;
 
             cardDraw.deal(canvas, q, (80 * q), 0);
 
-            //if(GetterSetter.buttonpressed == 1) {
-            //    scoreIt(q);
-            //}
+            if(GetterSetter.buttonpressed == 1) {
+                scoreIt(q);
+            }
 
         }
         GetterSetter.buttonpressed = 0;

@@ -182,7 +182,7 @@ public class CardDraw {
         //Clubs
         if (GetterSetter.card[cardnum].suit == 1) {
 
-            if (GetterSetter.card[cardnum].rank == 1) {
+            if (GetterSetter.card[cardnum].rank == 0) {
                 canvas.drawBitmap(twoClubs, ((x / 2) - 500) + xdistance, (y / 2) + ydistance, null);
             }
             if (GetterSetter.card[cardnum].rank == 1) {
@@ -226,7 +226,7 @@ public class CardDraw {
         //Hearts
         if (GetterSetter.card[cardnum].suit == 2) {
 
-            if (GetterSetter.card[cardnum].rank == 2) {
+            if (GetterSetter.card[cardnum].rank == 0) {
                 canvas.drawBitmap(twoHearts, ((x / 2) - 500) + xdistance, (y / 2) + ydistance, null);
             }
             if (GetterSetter.card[cardnum].rank == 1) {
@@ -270,7 +270,7 @@ public class CardDraw {
         //Diamonds
         if (GetterSetter.card[cardnum].suit == 3) {
 
-            if (GetterSetter.card[cardnum].rank == 3) {
+            if (GetterSetter.card[cardnum].rank == 0) {
                 canvas.drawBitmap(twoDiamonds, ((x/2) - 500) + xdistance, (y/2) + ydistance, null);
             }
             if (GetterSetter.card[cardnum].rank == 1) {
