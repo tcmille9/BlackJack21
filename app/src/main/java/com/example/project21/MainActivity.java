@@ -38,11 +38,27 @@ public class MainActivity extends AppCompatActivity {
 
     public void clickMethod(View view) {
         GetterSetter.playerScore = 0;
+        GetterSetter.dealerScore = 0;
         GetterSetter.hit++;
         GetterSetter.buttonpressed = 1;
 
-        //tv.setText("Card Number:" + GetterSetter.hit + " suit:" + fragment.card[GetterSetter.hit].suit + " rank:" + fragment.card[GetterSetter.hit].rank);
-        //GetterSetter.currentCard = a;
+    }
+
+    public void clickMethod1(View view) {
+        GetterSetter.playerScore = 0;
+        GetterSetter.dealerScore = 0;
+        GetterSetter.dealerhit = GetterSetter.hit;
+        GetterSetter.buttonpressed = 1;
+
+    }
+
+    public void clickMethod2(View view) {
+        GetterSetter.playerScore = 0;
+        GetterSetter.dealerScore = 0;
+        GetterSetter.hit = 3;
+        GetterSetter.dealerhit = 1;
+        GetterSetter.buttonpressed = 1;
+        fragment.shuffleDeck(GetterSetter.card);
 
     }
 

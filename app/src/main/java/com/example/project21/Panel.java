@@ -2,6 +2,7 @@ package com.example.project21;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.SurfaceHolder;
@@ -12,8 +13,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     //Paint paint;
     private CanvasThread canvasthread;
     int localscore;
-
-CardDraw cardDraw;
+    CardDraw cardDraw;
 
     public Panel(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -36,19 +36,40 @@ CardDraw cardDraw;
 
     @Override
     public void onDraw(Canvas canvas) {
-        for(int q = 0; q <= GetterSetter.hit; q++) {
+
+        //Dealer deal
+        for(int q = 0; q <= 1; q++) {
+            cardDraw.deal(canvas, q, (80 * q), -600);
+
+            if(GetterSetter.buttonpressed == 1) {
+                scoreit(q, true, false);
+            }
+
+        }
+
+        //Player deal
+        for(int q = 2; q <= GetterSetter.hit; q++) {
 
             cardDraw.deal(canvas, q, (80 * q), 0);
 
             if(GetterSetter.buttonpressed == 1) {
-                scoreIt(q);
+                scoreit(q, false, true);
             }
 
         }
+
+        //Dealer draws after player stands
+        for(int x = (GetterSetter.hit + 1); x <= GetterSetter.dealerhit; x++) {
+            cardDraw.deal(canvas, x, (80 * x), -600);
+            if(GetterSetter.buttonpressed == 1) {
+                scoreit(x, true, false);
+            }
+        }
+
         GetterSetter.buttonpressed = 0;
     }
 
-    public void scoreIt(int q) {
+    public void scoreit(int q, boolean dealer, boolean player) {
         if(GetterSetter.card[q].rank >= 8 ) {
             localscore = 10;
         }

@@ -33,6 +33,7 @@ public class MainActivityFragment extends Fragment {
                 false);
         tv = (TextView) rootView.findViewById(R.id.textView);
         tv.setTextColor(Color.WHITE);
+        tv.setTextSize(48);
         rootView.setBackgroundColor(Color.TRANSPARENT);
         //rootView.setBackgroundColor(Color.BLACK);
 
@@ -57,7 +58,19 @@ public class MainActivityFragment extends Fragment {
 
     private Runnable mUpdate = new Runnable() {
         public void run() {
+
             tv.setText(" " + GetterSetter.playerScore + " ");
+
+            if(GetterSetter.buttonpressed == 0) {
+                if(GetterSetter.dealerhit > 1) {
+                    if(GetterSetter.dealerScore < 17 && GetterSetter.dealerScore != 0) {
+                        GetterSetter.playerScore = 0;
+                        GetterSetter.dealerScore = 0;
+                        GetterSetter.dealerhit++;
+                        GetterSetter.buttonpressed = 1;
+                    }
+                }
+            }
 
             mHandler.post(this);
         }
