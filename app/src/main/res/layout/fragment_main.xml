@@ -2,31 +2,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    tools:context="com.example.project21.MainActivityFragment"
-    tools:showIn="@layout/activity_main"
     android:background="@android:color/transparent"
-    >
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context="com.example.project21.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
 
-    <com.example.project21.Panel android:id="@+id/SurfaceView01" android:layout_width="wrap_content"
-
-        android:layout_height="wrap_content" >
-    </com.example.project21.Panel>
+    <com.example.project21.Panel
+        android:id="@+id/SurfaceView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></com.example.project21.Panel>
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView" />
+        android:layout_gravity="bottom|left"
+        android:text="Hello World!" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
+        android:id="@+id/hit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:onClick="clickMethod"
         android:text="Hit" />
+
+    <Button
+        android:id="@+id/newhand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:onClick="clickMethod2"
+        android:text="New Hand" />
+
+    <Button
+        android:id="@+id/stand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:onClick="clickMethod1"
+        android:text="Stand" />
+
+
 
 </FrameLayout>

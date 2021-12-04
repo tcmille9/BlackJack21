@@ -18,7 +18,7 @@ public class MainActivityFragment extends Fragment {
     Card[] card;
     int z = 0;
     View rootView;
-    TextView tv;
+    TextView tv, tv1;
     Handler mHandler;
 
     public MainActivityFragment() {
@@ -33,7 +33,11 @@ public class MainActivityFragment extends Fragment {
                 false);
         tv = (TextView) rootView.findViewById(R.id.textView);
         tv.setTextColor(Color.WHITE);
-        tv.setTextSize(48);
+        tv.setTextSize(24);
+        tv1 = (TextView) rootView.findViewById(R.id.textView2);
+        tv1.setTextColor(Color.WHITE);
+        tv1.setTextSize(24);
+        
         rootView.setBackgroundColor(Color.TRANSPARENT);
         //rootView.setBackgroundColor(Color.BLACK);
 
@@ -59,7 +63,8 @@ public class MainActivityFragment extends Fragment {
     private Runnable mUpdate = new Runnable() {
         public void run() {
 
-            tv.setText(" " + GetterSetter.playerScore + " ");
+            tv.setText("Player: " + GetterSetter.playerScore + " ");
+            tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
 
             if(GetterSetter.buttonpressed == 0) {
                 if(GetterSetter.dealerhit > 1) {

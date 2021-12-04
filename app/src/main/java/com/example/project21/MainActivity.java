@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fm;
     MainActivityFragment fragment;
     int i = 0;
-    TextView tv = null;
+    TextView tv,tv1 = null;
     int a = 0;
 
     @Override
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         fm = getSupportFragmentManager();
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
+        //tv1 = fragment.tv1;
 
     }
 
@@ -37,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickMethod(View view) {
-        GetterSetter.playerScore = 0;
-        GetterSetter.dealerScore = 0;
-        GetterSetter.hit++;
-        GetterSetter.buttonpressed = 1;
+        if(!GetterSetter.isStanding) {
+            GetterSetter.playerScore = 0;
+            GetterSetter.dealerScore = 0;
+            GetterSetter.hit++;
+            GetterSetter.buttonpressed = 1;
+        }
 
     }
 
@@ -49,16 +52,18 @@ public class MainActivity extends AppCompatActivity {
         GetterSetter.dealerScore = 0;
         GetterSetter.dealerhit = GetterSetter.hit;
         GetterSetter.buttonpressed = 1;
+        GetterSetter.isStanding = true;
 
     }
 
     public void clickMethod2(View view) {
         GetterSetter.playerScore = 0;
         GetterSetter.dealerScore = 0;
-        GetterSetter.hit = 3;
+        GetterSetter.hit = 1;
         GetterSetter.dealerhit = 1;
         GetterSetter.buttonpressed = 1;
         fragment.shuffleDeck(GetterSetter.card);
+        GetterSetter.isStanding = false;
 
     }
 
