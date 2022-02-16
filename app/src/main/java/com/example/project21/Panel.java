@@ -64,7 +64,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         }
 
         //Dealer draws after player stands
-        for(int x = (GetterSetter.hit + 1); x <= GetterSetter.dealerhit; x++) {
+        for(int x = 2; x <= GetterSetter.dealerhit; x++) {
 
             cardDraw.deal(canvas, x, (80 * x), -600);
 
