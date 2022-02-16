@@ -63,9 +63,14 @@ public class MainActivityFragment extends Fragment {
     private Runnable mUpdate = new Runnable() {
         public void run() {
 
-            tv.setText("Player: " + GetterSetter.playerScore + " ");
-            tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
-
+            if(GetterSetter.playerScore <= 21) {
+                tv.setText(" " + GetterSetter.playerScore + " ");
+                tv1.setText(" " + GetterSetter.dealerScore + " ");
+            }
+            else {
+                tv.setText("BUST!");
+                GetterSetter.isStanding = true;
+            }
             if(GetterSetter.buttonpressed == 0) {
                 if(GetterSetter.dealerhit > 1) {
                     if(GetterSetter.dealerScore < 17 && GetterSetter.dealerScore != 0) {

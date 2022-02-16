@@ -37,17 +37,20 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    //Hit button
     public void clickMethod(View view) {
+
         if(!GetterSetter.isStanding) {
             GetterSetter.playerScore = 0;
             GetterSetter.dealerScore = 0;
             GetterSetter.hit++;
             GetterSetter.buttonpressed = 1;
         }
-
     }
 
+    //Stand button
     public void clickMethod1(View view) {
+
         GetterSetter.playerScore = 0;
         GetterSetter.dealerScore = 0;
         GetterSetter.dealerhit = GetterSetter.hit;
@@ -56,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //New Hand button
     public void clickMethod2(View view) {
+
         GetterSetter.playerScore = 0;
         GetterSetter.dealerScore = 0;
         GetterSetter.hit = 1;
