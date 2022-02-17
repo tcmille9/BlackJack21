@@ -81,32 +81,37 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     }
 
     public void scoreit(int q, boolean dealer, boolean player) {
-        if (GetterSetter.card[q].rank == 12) {
+        if (q == 0 && GetterSetter.dealerhit < 3) {
+            localscore = 0;
+        }
+        else {
+            if (GetterSetter.card[q].rank == 12) {
+                if (player) {
+                    if (GetterSetter.playerScore > 10) {
+                        localscore = 1;
+                    } else {
+                        localscore = 11;
+                    }
+                }
+                if (dealer) {
+                    if (GetterSetter.dealerScore > 10) {
+                        localscore = 1;
+                    } else {
+                        localscore = 11;
+                    }
+                }
+            } else if (GetterSetter.card[q].rank < 8) {
+                localscore = GetterSetter.card[q].rank + 2;
+            } else {
+                localscore = 10;
+            }
             if (player) {
-                if (GetterSetter.playerScore > 10) {
-                    localscore = 1;
-                } else {
-                    localscore = 11;
-                }
+                GetterSetter.playerScore = GetterSetter.playerScore + localscore;
             }
-            if (dealer) {
-                if (GetterSetter.dealerScore > 10) {
-                    localscore = 1;
-                } else {
-                    localscore = 11;
-                }
-            }
-        } else if (GetterSetter.card[q].rank < 8) {
-            localscore = GetterSetter.card[q].rank + 2;
-        } else {
-            localscore = 10;
-        }
-        if (player) {
-            GetterSetter.playerScore = GetterSetter.playerScore + localscore;
-        }
 
-        if (dealer) {
-            GetterSetter.dealerScore = GetterSetter.dealerScore + localscore;
+            if (dealer) {
+                GetterSetter.dealerScore = GetterSetter.dealerScore + localscore;
+            }
         }
     }
 
