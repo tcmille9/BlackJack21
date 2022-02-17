@@ -67,14 +67,11 @@ public class MainActivityFragment extends Fragment {
                 tv.setText("Player: " + GetterSetter.playerScore + " ");
                 tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
             }
-            else if(GetterSetter.dealerScore > 21) {
-                tv.setText("You win!");
-                tv.setText("Dealer busted!");
-            }
             else {
                 tv.setText("BUST!");
                 GetterSetter.isStanding = true;
             }
+
             if(GetterSetter.buttonpressed == 0) {
                 if(GetterSetter.dealerhit > 1) {
                     if(GetterSetter.dealerScore < GetterSetter.playerScore && GetterSetter.dealerScore != 0) {
@@ -86,6 +83,15 @@ public class MainActivityFragment extends Fragment {
                         }
                     }
                 }
+            }
+
+
+            if(GetterSetter.isStanding && (GetterSetter.dealerScore >= GetterSetter.playerScore)) {
+                tv.setText("YOU LOSE!");
+            }
+            if(GetterSetter.dealerScore > 21) {
+                tv.setText("YOU WIN!");
+                tv1.setText("Dealer busted!");
             }
 
             mHandler.postDelayed(this, 1);
