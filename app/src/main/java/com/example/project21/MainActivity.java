@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
         GetterSetter.playerScore = 0;
         GetterSetter.dealerScore = 0;
-        GetterSetter.hit = 1;
+        GetterSetter.hit = 3;
         GetterSetter.dealerhit = 1;
         GetterSetter.buttonpressed = 1;
         fragment.shuffleDeck(GetterSetter.card);

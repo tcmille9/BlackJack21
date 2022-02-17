@@ -67,13 +67,17 @@ public class MainActivityFragment extends Fragment {
                 tv.setText(" " + GetterSetter.playerScore + " ");
                 tv1.setText(" " + GetterSetter.dealerScore + " ");
             }
+            else if(GetterSetter.dealerScore > 21) {
+                tv.setText("You win!");
+                tv.setText("Dealer busted!");
+            }
             else {
                 tv.setText("BUST!");
                 GetterSetter.isStanding = true;
             }
             if(GetterSetter.buttonpressed == 0) {
                 if(GetterSetter.dealerhit > 1) {
-                    if(GetterSetter.dealerScore < 17 && GetterSetter.dealerScore != 0) {
+                    if(GetterSetter.dealerScore < GetterSetter.playerScore && GetterSetter.dealerScore != 0) {
                         GetterSetter.playerScore = 0;
                         GetterSetter.dealerScore = 0;
                         GetterSetter.dealerhit++;

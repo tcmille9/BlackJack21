@@ -53,7 +53,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         }
 
         //Player deal and draw until stand
-        for(int q = 2; q <= GetterSetter.hit + 2; q++) {
+        for(int q = 2; q <= GetterSetter.hit; q++) {
 
             cardDraw.deal(canvas, q, (80 * q) - 160, 0);
 
@@ -64,7 +64,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         }
 
         //Dealer draws after player stands
-        for(int x = 2; x <= GetterSetter.dealerhit; x++) {
+        for(int x = (GetterSetter.hit + 1); x <= GetterSetter.dealerhit; x++) {
 
             cardDraw.deal(canvas, x, (80 * x), -600);
 
@@ -78,17 +78,30 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 
     public void scoreit(int q, boolean dealer, boolean player) {
         if (GetterSetter.card[q].rank == 12) {
-            localscore = 11;
-        } else if (GetterSetter.card[q].rank < 8)  {
+            if (player) {
+                if (GetterSetter.playerScore > 10) {
+                    localscore = 1;
+                } else {
+                    localscore = 11;
+                }
+            }
+            if (dealer) {
+                if (GetterSetter.dealerScore > 10) {
+                    localscore = 1;
+                } else {
+                    localscore = 11;
+                }
+            }
+        } else if (GetterSetter.card[q].rank < 8) {
             localscore = GetterSetter.card[q].rank + 2;
         } else {
             localscore = 10;
         }
-        if(player) {
+        if (player) {
             GetterSetter.playerScore = GetterSetter.playerScore + localscore;
         }
-        
-        if(dealer) {
+
+        if (dealer) {
             GetterSetter.dealerScore = GetterSetter.dealerScore + localscore;
         }
     }
