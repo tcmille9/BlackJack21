@@ -66,8 +66,12 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         //Dealer draws after player stands
         for(int x = (GetterSetter.hit + 1); x <= GetterSetter.dealerhit; x++) {
 
-            cardDraw.deal(canvas, x, (80 * x), -600);
-
+            if (x > 2) {
+                cardDraw.deal(canvas, x, 80 * (x - (GetterSetter.hit -1)), -600);
+            }
+            else {
+                cardDraw.deal(canvas, x, (80 * x), -600);
+            }
             if(GetterSetter.buttonpressed == 1) {
                 scoreit(x, true, false);
             }
@@ -129,7 +133,6 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
                 canvasthread.join();
                 retry = false;
             } catch (InterruptedException e) {
-                // we will try it again and again...
             }
         }
 

@@ -80,13 +80,15 @@ public class MainActivityFragment extends Fragment {
                     if(GetterSetter.dealerScore < GetterSetter.playerScore && GetterSetter.dealerScore != 0) {
                         GetterSetter.playerScore = 0;
                         GetterSetter.dealerScore = 0;
-                        GetterSetter.dealerhit++;
-                        GetterSetter.buttonpressed = 1;
+                        if(GetterSetter.isStanding) {
+                            GetterSetter.dealerhit++;
+                            GetterSetter.buttonpressed = 1;
+                        }
                     }
                 }
             }
 
-            mHandler.post(this);
+            mHandler.postDelayed(this, 1);
         }
     };
 
