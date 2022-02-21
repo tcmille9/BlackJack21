@@ -64,8 +64,10 @@ public class MainActivityFragment extends Fragment {
         public void run() {
 
             if(GetterSetter.playerScore <= 21) {
-                tv.setText("Player: " + GetterSetter.playerScore + " ");
-                tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
+                tv.setText(" " + GetterSetter.playerScore + " ");
+                tv1.setText(" " + GetterSetter.dealerScore + " ");
+                //tv.setText("Player: " + GetterSetter.playerScore + " ");
+                //tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
             }
             else {
                 tv.setText("BUST!");
