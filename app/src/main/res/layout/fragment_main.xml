@@ -18,25 +18,34 @@
         android:layout_marginBottom="75dp">
     </com.example.project21.Panel>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|start"
-        android:text="Player Score"
-    />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Dealer Score"
-        android:layout_gravity="top|end"
-    />
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="start"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="60dp"
+            android:background="@color/maroon"
+            android:text="Player Score" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="top"
+            android:layout_marginStart="190dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="60dp"
+            android:background="@color/maroon"
+            android:text="Dealer Score" />
 
         <Button
             android:id="@+id/hit"
@@ -44,7 +53,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
-            android:layout_toStartOf="@id/stand"
             android:onClick="clickMethod"
             android:text="Hit"
             android:visibility="visible" />
@@ -55,17 +63,18 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="26dp"
+            android:layout_toEndOf="@+id/hit"
             android:onClick="clickMethod1"
-            android:text="Stand"
-        />
+            android:text="Stand" />
 
         <Button
             android:id="@+id/newhand"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="false"
+            android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@id/hit"
             android:onClick="clickMethod2"
             android:text="New Hand" />
 
