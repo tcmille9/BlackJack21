@@ -11,4 +11,6 @@ public class GetterSetter {
     static int buttonpressed = 1;
     static int updated = 0;
     static boolean isStanding = false;
+    static boolean playerHasAce = false;
+    static boolean dealerHasAce = false;
 }

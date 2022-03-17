@@ -91,6 +91,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
                         localscore = 1;
                     } else {
                         localscore = 11;
+                        GetterSetter.playerHasAce = true;
                     }
                 }
                 if (dealer) {
@@ -98,6 +99,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
                         localscore = 1;
                     } else {
                         localscore = 11;
+                        GetterSetter.dealerHasAce = true;
                     }
                 }
             } else if (GetterSetter.card[q].rank < 8) {
@@ -107,10 +109,18 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
             }
             if (player) {
                 GetterSetter.playerScore = GetterSetter.playerScore + localscore;
+                if (GetterSetter.playerScore > 21 && GetterSetter.playerHasAce == true) {
+                    GetterSetter.playerScore -= 10;
+                    GetterSetter.playerHasAce = false;
+                }
             }
 
             if (dealer) {
                 GetterSetter.dealerScore = GetterSetter.dealerScore + localscore;
+                if (GetterSetter.dealerScore > 21 && GetterSetter.dealerHasAce == true) {
+                    GetterSetter.dealerScore -= 10;
+                    GetterSetter.dealerHasAce = false;
+                }
             }
         }
     }
