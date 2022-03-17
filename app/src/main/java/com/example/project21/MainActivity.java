@@ -68,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.dealerhit = 1;
             GetterSetter.buttonpressed = 1;
             fragment.shuffleDeck(GetterSetter.card);
-            GetterSetter.isStanding = false;
             GetterSetter.playerHasAce = false;
             GetterSetter.dealerHasAce = false;
+            GetterSetter.isStanding = false;
         }
     }
 

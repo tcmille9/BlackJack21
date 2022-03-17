@@ -18,7 +18,7 @@ public class MainActivityFragment extends Fragment {
     Card[] card;
     int z = 0;
     View rootView;
-    TextView tv, tv1;
+    TextView tv, tv1, gg;
     Handler mHandler;
 
     public MainActivityFragment() {
@@ -33,10 +33,13 @@ public class MainActivityFragment extends Fragment {
                 false);
         tv = rootView.findViewById(R.id.textView);
         tv.setTextColor(Color.WHITE);
-        tv.setTextSize(24);
+        tv.setTextSize(21);
         tv1 = rootView.findViewById(R.id.textView2);
         tv1.setTextColor(Color.WHITE);
-        tv1.setTextSize(24);
+        tv1.setTextSize(21);
+        gg = rootView.findViewById(R.id.textView3);
+        gg.setTextColor(Color.WHITE);
+        gg.setTextSize(21);
         
         rootView.setBackgroundColor(Color.TRANSPARENT);
         //rootView.setBackgroundColor(Color.BLACK);
@@ -66,12 +69,14 @@ public class MainActivityFragment extends Fragment {
             if(GetterSetter.playerScore <= 21) {
                 tv.setText("Player: " + GetterSetter.playerScore + " ");
                 tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
+                gg.setText("");
                 //tv.setText("Player: " + GetterSetter.playerScore + " ");
                 //tv1.setText("Dealer: " + GetterSetter.dealerScore + " ");
             }
             else {
-                tv.setText("BUST!");
+                tv.setText(" ");
                 tv1.setText(" ");
+                gg.setText("BUST!");
                 GetterSetter.isStanding = true;
             }
 
@@ -90,11 +95,11 @@ public class MainActivityFragment extends Fragment {
 
 
             if(GetterSetter.isStanding && (GetterSetter.dealerScore >= GetterSetter.playerScore)) {
-                tv.setText("YOU LOSE!");
+                tv.setText("You lose!");
             }
             if(GetterSetter.dealerScore > 21) {
                 tv.setText("YOU WIN!");
-                tv1.setText("Dealer busted!");
+                tv1.setText("Dealer bust!");
             }
 
             mHandler.postDelayed(this, 1);
