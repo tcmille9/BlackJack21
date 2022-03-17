@@ -1,5 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
@@ -8,19 +9,30 @@
     android:paddingRight="16dp"
     android:paddingBottom="16dp"
     tools:context="com.example.project21.MainActivityFragment"
-    tools:showIn="@layout/activity_main"
->
+    tools:showIn="@layout/activity_main">
 
     <com.example.project21.Panel
         android:id="@+id/SurfaceView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp">
-    </com.example.project21.Panel>
+        android:layout_marginBottom="75dp"></com.example.project21.Panel>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/width"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="width" />
+
+        <TextView
+            android:id="@+id/height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="height" />
 
         <Button
             android:id="@+id/backgroundButton"

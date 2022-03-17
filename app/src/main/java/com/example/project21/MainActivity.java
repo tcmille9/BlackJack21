@@ -2,7 +2,10 @@ package com.example.project21;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,6 +30,21 @@ public class MainActivity extends AppCompatActivity {
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
         //tv1 = fragment.tv1;
+        TextView width = findViewById(R.id.width);
+        width.setTextSize(12);
+        width.setTextColor(Color.WHITE);
+        TextView height = findViewById(R.id.height);
+        height.setTextSize(12);
+        height.setTextColor(Color.WHITE);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+
+        int screenWidth = dm.widthPixels;
+        int screenHeight = dm.heightPixels;
+
+        width.setText("Width: " + screenWidth);
+        height.setText("Height: " + screenHeight);
 
     }
 
