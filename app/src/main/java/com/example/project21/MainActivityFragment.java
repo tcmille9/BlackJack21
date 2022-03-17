@@ -31,10 +31,10 @@ public class MainActivityFragment extends Fragment {
 
         rootView = inflater.inflate(R.layout.fragment_main, container,
                 false);
-        tv = (TextView) rootView.findViewById(R.id.textView);
+        tv = rootView.findViewById(R.id.textView);
         tv.setTextColor(Color.WHITE);
         tv.setTextSize(24);
-        tv1 = (TextView) rootView.findViewById(R.id.textView2);
+        tv1 = rootView.findViewById(R.id.textView2);
         tv1.setTextColor(Color.WHITE);
         tv1.setTextSize(24);
         
