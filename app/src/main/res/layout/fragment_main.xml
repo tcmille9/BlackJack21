@@ -4,35 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/transparent"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
-    android:paddingBottom="16dp"
     tools:context="com.example.project21.MainActivityFragment"
     tools:showIn="@layout/activity_main">
 
     <com.example.project21.Panel
         android:id="@+id/SurfaceView01"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"></com.example.project21.Panel>
+        android:layout_height="wrap_content"></com.example.project21.Panel>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/width"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="width" />
-
-        <TextView
-            android:id="@+id/height"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="height" />
 
         <Button
             android:id="@+id/backgroundButton"
@@ -66,7 +48,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
+            android:layout_marginStart="30dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/newhand"
             android:onClick="clickMethod"
             android:text="Hit"
             android:visibility="visible" />
@@ -78,7 +62,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
             android:layout_marginStart="26dp"
-            android:layout_toEndOf="@+id/hit"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="8dp"
             android:onClick="clickMethod1"
             android:text="Stand" />
 
@@ -88,6 +73,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
             android:onClick="clickMethod2"
             android:text="New Hand" />
 
