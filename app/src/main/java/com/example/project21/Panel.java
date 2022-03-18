@@ -38,16 +38,6 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         int screenWidth = size.x;
         int screenHeight = size.y;
 
-        //width = (TextView) findViewById(R.id.width);
-        //width.setTextSize(12);
-        //width.setTextColor(Color.WHITE);
-        //height = (TextView) findViewById(R.id.height);
-        //height.setTextSize(12);
-        //height.setTextColor(Color.WHITE);
-
-        //width.setText("Width: " + screenWidth);
-        //height.setText("Height: " + screenHeight);
-
         cardDraw = new CardDraw(context);
 
         background = BitmapFactory.decodeResource(context.getResources(), R.drawable.background);
@@ -137,7 +127,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
             }
             if (player) {
                 GetterSetter.playerScore = GetterSetter.playerScore + localscore;
-                if (GetterSetter.playerScore > 21 && GetterSetter.playerHasAce == true) {
+                if (GetterSetter.playerScore > 21 && GetterSetter.playerHasAce) {
                     GetterSetter.playerScore -= 10;
                     GetterSetter.playerHasAce = false;
                 }
@@ -145,7 +135,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 
             if (dealer) {
                 GetterSetter.dealerScore = GetterSetter.dealerScore + localscore;
-                if (GetterSetter.dealerScore > 21 && GetterSetter.dealerHasAce == true) {
+                if (GetterSetter.dealerScore > 21 && GetterSetter.dealerHasAce) {
                     GetterSetter.dealerScore -= 10;
                     GetterSetter.dealerHasAce = false;
                 }
@@ -176,6 +166,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
                 canvasthread.join();
                 retry = false;
             } catch (InterruptedException e) {
+                //
             }
         }
 
