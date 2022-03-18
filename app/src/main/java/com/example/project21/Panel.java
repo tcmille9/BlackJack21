@@ -62,8 +62,12 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         //Dealer deal
         for(int q = 0; q <= 1; q++) {
 
-            cardDraw.deal(canvas, q, (80 * q), -600);
-
+            if(q == 0 && GetterSetter.dealerhit < 3) {
+                cardDraw.deal(canvas, 501, (80 * q), -600);
+            }
+            else {
+                cardDraw.deal(canvas, q, (80 * q), -600);
+            }
             if(GetterSetter.buttonpressed == 1) {
                 scoreit(q, true, false);
             }
