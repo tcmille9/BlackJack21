@@ -6,9 +6,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
+import android.widget.TextView;
 
 public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     //GLOBAL VARIABLES
@@ -17,6 +22,7 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
     int localscore;
     CardDraw cardDraw;
     Bitmap background;
+    //TextView width,height;
 
     public Panel(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -24,8 +30,28 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
         getHolder().addCallback(this);
         canvasthread = new CanvasThread(getHolder(), this);
         setFocusable(true);
-        Bitmap background = BitmapFactory.decodeResource(context.getResources(), R.drawable.background);
+
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        Display display = wm.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        int screenWidth = size.x;
+        int screenHeight = size.y;
+
+        //width = (TextView) findViewById(R.id.width);
+        //width.setTextSize(12);
+        //width.setTextColor(Color.WHITE);
+        //height = (TextView) findViewById(R.id.height);
+        //height.setTextSize(12);
+        //height.setTextColor(Color.WHITE);
+
+        //width.setText("Width: " + screenWidth);
+        //height.setText("Height: " + screenHeight);
+
         cardDraw = new CardDraw(context);
+
+        background = BitmapFactory.decodeResource(context.getResources(), R.drawable.background);
+        background = Bitmap.createScaledBitmap(background, screenWidth, screenHeight, false);
     }
 
     public Panel(Context context) {
@@ -38,8 +64,10 @@ public class Panel extends SurfaceView implements SurfaceHolder.Callback{
 
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawColor(Color.BLACK);
-        canvas.drawColor(Color.TRANSPARENT);
+        //canvas.drawColor(Color.BLACK);
+        //canvas.drawColor(Color.TRANSPARENT);
+        canvas.drawBitmap(background, 0, 0, null);
+
 
         //Dealer deal
         for(int q = 0; q <= 1; q++) {
