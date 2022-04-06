@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.playerHasAce = false;
             GetterSetter.dealerHasAce = false;
             GetterSetter.isStanding = false;
-            soundPool.play(shuffle, 1,1, 0, 0, 1);
+            soundPool.play(shuffle, 0.5F,0.5F, 0, 0, 1);
 
         }
     }

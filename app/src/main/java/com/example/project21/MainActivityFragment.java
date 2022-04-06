@@ -102,7 +102,7 @@ public class MainActivityFragment extends Fragment {
                 tv1.setText("Dealer bust!");
             }
 
-            mHandler.postDelayed(this, 1);
+            mHandler.postDelayed(this, 5);
         }
     };
 
