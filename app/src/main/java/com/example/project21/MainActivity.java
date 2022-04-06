@@ -4,6 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.graphics.Color;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.SoundPool;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
@@ -21,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     TextView tv,tv1 = null;
     int a = 0;
 
+    private SoundPool soundPool;
+    private int shuffle, deal;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +38,22 @@ public class MainActivity extends AppCompatActivity {
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
         //tv1 = fragment.tv1;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .build();
+            soundPool = new SoundPool.Builder()
+                    .setMaxStreams(2)
+                    .setAudioAttributes(audioAttributes)
+                    .build();
+        }
+        else {
+            soundPool = new SoundPool(2, AudioManager.STREAM_MUSIC,0);
+        }
 
-
+        shuffle = soundPool.load(this, R.raw.shuffle, 1);
+        deal = soundPool.load(this, R.raw.deal, 1);
     }
 
     @Override
@@ -49,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.dealerScore = 0;
             GetterSetter.hit++;
             GetterSetter.buttonpressed = 1;
+            soundPool.play(deal, 1,1, 0, 0, 1);
         }
     }
 
@@ -75,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.playerHasAce = false;
             GetterSetter.dealerHasAce = false;
             GetterSetter.isStanding = false;
+            soundPool.play(shuffle, 1,1, 0, 0, 1);
 
         }
     }
@@ -93,5 +117,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onDestroy() {
+        super.onDestroy();
+        soundPool.release();
+        soundPool = null;
     }
 }
