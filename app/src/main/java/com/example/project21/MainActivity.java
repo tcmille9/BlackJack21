@@ -1,9 +1,14 @@
 package com.example.project21;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
@@ -15,8 +20,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Button;
+import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
     Button but;
@@ -25,9 +32,9 @@ public class MainActivity extends AppCompatActivity {
     int i = 0;
     TextView tv,tv1 = null;
     int a = 0;
-
     private SoundPool soundPool;
     private int shuffle, deal;
+    ImageButton toggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
         shuffle = soundPool.load(this, R.raw.shuffle, 1);
         deal = soundPool.load(this, R.raw.deal, 1);
+        toggle = findViewById(R.id.toggleAudio);
     }
 
     @Override
@@ -71,7 +79,10 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.dealerScore = 0;
             GetterSetter.hit++;
             GetterSetter.buttonpressed = 1;
-            soundPool.play(deal, 2,2, 0, 0, 1);
+
+            if(GetterSetter.audioEnabled) {
+                soundPool.play(deal, 2, 2, 0, 0, 1);
+            }
         }
     }
 
@@ -98,8 +109,24 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.playerHasAce = false;
             GetterSetter.dealerHasAce = false;
             GetterSetter.isStanding = false;
-            soundPool.play(shuffle, 0.5F,0.5F, 0, 0, 1);
 
+            if(GetterSetter.audioEnabled) {
+                soundPool.play(shuffle, 0.5F,0.5F, 0, 0, 1);
+            }
+        }
+    }
+
+    //Audio button
+    public void toggleAudio(View view) {
+        if(GetterSetter.audioEnabled)
+        {
+            GetterSetter.audioEnabled = false;
+            toggle.setImageDrawable(getDrawable(R.drawable.audio_disabled));
+        }
+        else
+        {
+            GetterSetter.audioEnabled = true;
+            toggle.setImageDrawable(getDrawable(R.drawable.audio_enabled));
         }
     }
 

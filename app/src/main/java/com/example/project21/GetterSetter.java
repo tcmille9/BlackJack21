@@ -13,4 +13,5 @@ public class GetterSetter {
     static boolean isStanding = false;
     static boolean playerHasAce = false;
     static boolean dealerHasAce = false;
+    static boolean audioEnabled = true;
 }
