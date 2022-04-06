@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             GetterSetter.dealerScore = 0;
             GetterSetter.hit++;
             GetterSetter.buttonpressed = 1;
-            soundPool.play(deal, 1,1, 0, 0, 1);
+            soundPool.play(deal, 2,2, 0, 0, 1);
         }
     }
 
