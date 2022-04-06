@@ -1,37 +1,24 @@
 package com.example.project21;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.FragmentManager;
 
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.media.AudioAttributes;
 import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.media.SoundPool;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Button;
-import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity {
-    Button but;
     FragmentManager fm;
     MainActivityFragment fragment;
-    int i = 0;
     TextView tv,tv1 = null;
-    int a = 0;
     private SoundPool soundPool;
     private int shuffle, deal;
     ImageButton toggle;
@@ -44,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         fm = getSupportFragmentManager();
         fragment = (MainActivityFragment)fm.findFragmentById(R.id.fragment);
         tv = fragment.tv;
-        //tv1 = fragment.tv1;
+        tv1 = fragment.tv1;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AudioAttributes audioAttributes = new AudioAttributes.Builder()
                 .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
@@ -89,11 +76,13 @@ public class MainActivity extends AppCompatActivity {
     //Stand button
     public void clickMethod1(View view) {
 
-        GetterSetter.playerScore = 0;
-        GetterSetter.dealerScore = 0;
-        GetterSetter.dealerhit = GetterSetter.hit;
-        GetterSetter.buttonpressed = 1;
-        GetterSetter.isStanding = true;
+        if(!GetterSetter.isStanding) {
+            GetterSetter.playerScore = 0;
+            GetterSetter.dealerScore = 0;
+            GetterSetter.dealerhit = GetterSetter.hit;
+            GetterSetter.buttonpressed = 1;
+            GetterSetter.isStanding = true;
+        }
     }
 
     //New Hand button
